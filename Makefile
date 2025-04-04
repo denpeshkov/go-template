@@ -14,7 +14,7 @@ tidy: ## Tidy
 
 .PHONY: lint
 lint: ## Lint
-	@docker run -t --rm -v .:/app -v ~/.cache/golangci-lint/v1.62.0:/root/.cache -w /app golangci/golangci-lint:v1.62.0 golangci-lint run -v -c .golangci.yml
+	golangci-lint run -v -c .golangci.yml
 
 .PHONY: test
 test: ## Test
