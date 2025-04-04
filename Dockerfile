@@ -1,6 +1,5 @@
 # syntax=docker/dockerfile:1
-ARG GO_VERSION=latest
-ARG GOLANGCI_LINT_VERSION=latest-alpine
+ARG GO_VERSION=1.24
 
 FROM --platform=$BUILDPLATFORM golang:${GO_VERSION} AS deps
 ENV GOMODCACHE=/go/pkg/mod/
@@ -18,4 +17,4 @@ WORKDIR /src
 COPY . .
 RUN --mount=type=cache,target=${GOMODCACHE} \
     --mount=type=cache,target=${GOCACHE} \
-    CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build ./...
+    CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -ldflags="-s -w" ./...
