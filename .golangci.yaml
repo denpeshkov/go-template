@@ -12,6 +12,7 @@ linters:
     - dogsled
     - dupl
     - dupword
+    - err113
     - funlen
     - ginkgolinter
     - gocognit
