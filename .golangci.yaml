@@ -35,6 +35,9 @@ linters:
     - wsl
     - wsl_v5
     - noinlineerr
+  settings:
+    govet:
+      enable-all: true
 
 formatters:
   enable:
